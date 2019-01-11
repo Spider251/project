@@ -181,3 +181,86 @@ session : 存储在服务器上的东西
 
 新建django项目
 django-admin startproject xxxx
+
+新建app
+python3 manage.py startapp xxxx
+***********************************
+为了管理项目,合作性开发,创建多个app
+1. 按照功能流程分类app
+比如购物项目: 用户模块,购物车模块,订单模块,支付模块,前台显示模块
+2. 按照角色流程分类app
+比如二手车: 买模块,卖模块,用户模块,前台显示模块,
+***********************************
+sudo /etc/init.d/mysql start 启动mysql服务
+写django项目的流程
+    1. html,为了让html显示出来
+    2. views,定义views方法,逻辑处理完整
+    3. urls,指向views中的方法
+    4. 处理好最后的html
+    5. 点击完成
+
+
+***********************************
+基于django自带user表扩展
+引用
+from django.contrib,auth.models import AbstractUser
+
+继承表
+class UserInfo(AbstractUser):
+
+添加指定表settings.py
+AUTH_USER_MODLE = 'userinfo.UserInfo'
+
+注册表 admin.py
+from .models import *
+admin.site.register(UserInfo)
+admin.site.register(Bank)
+***********************************
+
+创建超级用户
+python3 manage.py createsuperuser
+
+执行创建表
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+**************************************
+1. '\ex7'错误: 编码格式,出现中文
+# -*- coding: UTF-8 -*-
+**************************************
+
+
+购物车,如果是未注册,添加物品则放入cookie中
+购物车,如果是注册,添加物品到数据库中
+
+**************************************
+1. display:block/none/inline...
+    display有32中用法
+**************************************
+
+
+***************************************
+filter查询不需要添加try保护,查不到返回空
+Carinfo.objects.get(id=car_id)需要添加try保护
+因为一旦查不到,则会报错
+***************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

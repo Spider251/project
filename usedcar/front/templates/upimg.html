@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>upimg</title>
+</head>
+<body>
+    <form action="{% url 'upimg' %}" method="post" enctype="multipart/form-data">
+        <div style="display: none"></div>
+        <div style="display: none"></div>
+        <div style="display: none"></div>
+        <div style="display: none"></div>
+        <!--1.-->
+        {% csrf_token %}
+        <!--2. AJax添加一个参数-->
+        <!--settings里面注释MIDDLEWARE中的csrf第四行-->
+        <input type="file" name="picc" id="picc">
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>
